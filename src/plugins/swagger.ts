@@ -15,7 +15,12 @@ export async function registerSwagger(app: FastifyInstance) {
         },
       },
       servers: [
-        { url: 'http://localhost:3000', description: 'Local' },
+        { 
+          url: process.env.NODE_ENV === 'production' 
+            ? `https://${process.env.RENDER_EXTERNAL_HOSTNAME || 'ninja-scope.onrender.com'}` 
+            : 'http://localhost:3000', 
+          description: process.env.NODE_ENV === 'production' ? 'Production' : 'Local' 
+        },
       ],
       tags: [
         { name: 'Markets', description: 'Market data aggregation endpoints' },
