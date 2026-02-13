@@ -2,6 +2,10 @@
 
 > **See every market move before it happens.**
 
+<p align="center">
+  <img src="ninja-scope-social.svg" alt="NinjaScope - Injective Market Intelligence API" width="800">
+</p>
+
 **NinjaScope** is a powerful REST API that transforms Injective's raw on-chain data into developer-ready intelligence. It aggregates markets, computes real-time analytics, ranks market health, detects whale activity, and profiles wallets — all through **20 clean JSON endpoints** with automatic caching and interactive Swagger docs.
 
 Built for the **[Ninja API Forge](https://www.hackquest.io/hackathons/Ninja-API-Forge)** hackathon.
