@@ -1,0 +1,54 @@
+<svg width="820" height="380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; }
+      .bar { fill: #313244; }
+      .title { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .cmd { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .prompt { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .key { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .str { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .num { fill: #fab387; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .punc { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .highlight { fill: #f9e2af; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .label { fill: #cba6f7; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; font-weight: bold; }
+      .dim { fill: #6c7086; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
+      .dot-red { fill: #f38ba8; }
+      .dot-yellow { fill: #f9e2af; }
+      .dot-green { fill: #a6e3a1; }
+    </style>
+  </defs>
+  <rect class="bg" width="820" height="380" rx="10"/>
+  <rect class="bar" width="820" height="36" rx="10"/>
+  <rect class="bg" x="0" y="26" width="820" height="10"/>
+  <circle class="dot-red" cx="20" cy="18" r="6"/>
+  <circle class="dot-yellow" cx="40" cy="18" r="6"/>
+  <circle class="dot-green" cx="60" cy="18" r="6"/>
+  <text class="title" x="370" y="22" text-anchor="middle">NinjaScope — Wallet Portfolio</text>
+
+  <text class="prompt" x="20" y="60">$</text>
+  <text class="cmd" x="35" y="60">curl '.../accounts/inj14au322k.../portfolio'</text>
+
+  <text class="punc" x="20" y="95">{</text>
+  <text class="key" x="35" y="120">"address"</text><text class="punc" x="120" y="120">:</text><text class="str" x="135" y="120">"inj14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"</text><text class="punc" x="555" y="120">,</text>
+
+  <text class="label" x="35" y="150">BANK BALANCES (16 tokens)</text>
+  <text class="key" x="35" y="175">"bankBalances"</text><text class="punc" x="165" y="175">: [</text>
+  <text class="punc" x="50" y="195">{</text><text class="key" x="65" y="195">"denom"</text><text class="punc" x="125" y="195">:</text><text class="str" x="140" y="195">"inj"</text><text class="punc" x="185" y="195">,</text>
+  <text class="key" x="210" y="195">"amount"</text><text class="punc" x="285" y="195">:</text><text class="highlight" x="300" y="195">"2"</text><text class="punc" x="325" y="195">}</text><text class="punc" x="335" y="195">,</text>
+  <text class="punc" x="50" y="215">{</text><text class="key" x="65" y="215">"denom"</text><text class="punc" x="125" y="215">:</text><text class="str" x="140" y="215">"peggy0xdAC17F...USDT"</text><text class="punc" x="380" y="215">,</text>
+  <text class="key" x="400" y="215">"amount"</text><text class="punc" x="475" y="215">:</text><text class="highlight" x="490" y="215">"0"</text><text class="punc" x="515" y="215">}</text>
+  <text class="dim" x="530" y="215">... +14 more</text>
+  <text class="punc" x="35" y="235">]</text><text class="punc" x="45" y="235">,</text>
+
+  <text class="label" x="35" y="265">SUBACCOUNTS (6 accounts)</text>
+  <text class="key" x="35" y="290">"subaccounts"</text><text class="punc" x="155" y="290">: [</text>
+  <text class="punc" x="50" y="310">{</text>
+  <text class="key" x="65" y="310">"subaccountId"</text><text class="punc" x="190" y="310">:</text><text class="str" x="205" y="310">"0xaf79152a...0000"</text><text class="punc" x="420" y="310">,</text>
+  <text class="key" x="440" y="310">"totalBalance"</text><text class="punc" x="570" y="310">:</text><text class="highlight" x="585" y="310">"0.475"</text>
+  <text class="punc" x="50" y="330">}</text>
+  <text class="dim" x="70" y="330">... +5 more</text>
+  <text class="punc" x="35" y="350">]</text><text class="punc" x="45" y="350">,</text>
+
+  <text class="key" x="35" y="370">"positionsCount"</text><text class="punc" x="185" y="370">:</text><text class="num" x="200" y="370">0</text>
+</svg>

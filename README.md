@@ -116,25 +116,9 @@ API: `http://localhost:3000/api/v1` | Docs: `http://localhost:3000/docs`
 
 ### 1. Find a market by ticker — no hex hashes needed
 
-```bash
-curl 'http://localhost:3000/api/v1/markets/ticker/INJ-USDT'
-```
-
-```json
-{
-  "success": true,
-  "data": {
-    "marketId": "0xa508cb32923323679f29a032c70342c147c17d0145625922b0ef22e955c844c0",
-    "ticker": "INJ/USDT",
-    "type": "spot",
-    "baseTokenMeta": { "name": "Injective", "symbol": "INJ", "decimals": 18 },
-    "quoteTokenMeta": { "name": "Tether", "symbol": "USDT", "decimals": 6 },
-    "makerFeeRate": "0",
-    "takerFeeRate": "0.0005"
-  },
-  "meta": { "cached": false, "took_ms": 1860 }
-}
-```
+<p align="center">
+  <img src="screenshots/01-ticker-lookup.svg" alt="Ticker Lookup" width="780">
+</p>
 
 For derivatives, add `?type=derivative`:
 ```bash
@@ -146,159 +130,45 @@ curl 'http://localhost:3000/api/v1/markets/ticker/BTC-USDT?type=derivative'
 
 Raw Injective prices like `0.000000000002990` are automatically converted to `$2.99`:
 
-```bash
-curl 'http://localhost:3000/api/v1/markets/0xa508cb.../orderbook'
-```
-
-```json
-{
-  "success": true,
-  "data": {
-    "buys": [
-      { "price": "0.00000000000299", "quantity": "1146915000000000000000", "humanPrice": "2.99", "humanQuantity": "1146.915" },
-      { "price": "0.000000000002989", "quantity": "503740000000000000000", "humanPrice": "2.989", "humanQuantity": "503.74" }
-    ],
-    "sells": [
-      { "price": "0.000000000002998", "quantity": "1682084000000000000000", "humanPrice": "2.998", "humanQuantity": "1682.084" },
-      { "price": "0.000000000002999", "quantity": "1514959000000000000000", "humanPrice": "2.999", "humanQuantity": "1514.959" }
-    ],
-    "bestBid": "0.00000000000299",
-    "bestAsk": "0.000000000002998",
-    "spreadPercentage": "0.2672"
-  }
-}
-```
+<p align="center">
+  <img src="screenshots/02-orderbook.svg" alt="Orderbook with Human-Readable Prices" width="780">
+</p>
 
 ### 3. Market health score — composite 0-100 rating
 
-```bash
-curl 'http://localhost:3000/api/v1/markets/0xa508cb.../health'
-```
-
-```json
-{
-  "success": true,
-  "data": {
-    "marketId": "0xa508cb...",
-    "ticker": "INJ/USDT",
-    "score": 84,
-    "components": {
-      "spreadScore": 60,
-      "depthScore": 100,
-      "activityScore": 100
-    },
-    "rating": "excellent"
-  }
-}
-```
-
 Health is computed from 3 weighted factors: spread tightness (40%), orderbook depth (30%), and recent trade activity (30%).
+
+<p align="center">
+  <img src="screenshots/03-health-score.svg" alt="Market Health Score" width="780">
+</p>
 
 ### 4. Market rankings — find the best markets instantly
 
-```bash
-curl 'http://localhost:3000/api/v1/markets/rankings?sort=health&limit=5'
-```
-
-```json
-{
-  "success": true,
-  "data": [
-    { "ticker": "WETH/USDT", "type": "spot", "healthScore": 96, "rating": "excellent", "spreadPercentage": "0.0103", "orderbookEntries": 1914 },
-    { "ticker": "INJ/USDT", "type": "spot", "healthScore": 84, "rating": "excellent", "spreadPercentage": "0.2672", "orderbookEntries": 13855 }
-  ]
-}
-```
-
-Supports `?sort=health|spread|depth`, `?limit=N`, and `?type=spot|derivative`.
+<p align="center">
+  <img src="screenshots/04-rankings.svg" alt="Market Rankings" width="780">
+</p>
 
 ### 5. Whale trade detection
 
 Automatically surfaces the top 10% of trades by notional value:
 
-```bash
-curl 'http://localhost:3000/api/v1/markets/0xa508cb.../whales'
-```
-
-```json
-{
-  "success": true,
-  "data": [
-    {
-      "tradeDirection": "buy",
-      "humanPrice": "3.019",
-      "humanQuantity": "520.341",
-      "notionalValue": "1570.9095",
-      "executedAt": 1770947766210
-    },
-    {
-      "tradeDirection": "sell",
-      "humanPrice": "3.004",
-      "humanQuantity": "363.948",
-      "notionalValue": "1093.2998",
-      "executedAt": 1770955433372
-    }
-  ]
-}
-```
-
-Use `?minValue=5000` to set a custom notional threshold.
+<p align="center">
+  <img src="screenshots/05-whales.svg" alt="Whale Trade Detection" width="780">
+</p>
 
 ### 6. All-in-one market snapshot
 
 Get everything about a market in **one API call** — perfect for dashboards:
 
-```bash
-curl 'http://localhost:3000/api/v1/markets/0xa508cb.../snapshot'
-```
-
-```json
-{
-  "success": true,
-  "data": {
-    "market": { "ticker": "INJ/USDT", "type": "spot", "baseTokenMeta": { "symbol": "INJ" }, "..." : "..." },
-    "orderbook": {
-      "bestBid": "0.000000000002991", "bestAsk": "0.000000000003",
-      "spreadPercentage": "0.3005",
-      "buyLevels": 85, "sellLevels": 13768,
-      "topBuys": [{ "humanPrice": "2.991", "humanQuantity": "2140.07" }],
-      "topSells": [{ "humanPrice": "3", "humanQuantity": "1680.681" }]
-    },
-    "recentTrades": [
-      { "humanPrice": "2.991", "humanQuantity": "12.5", "tradeDirection": "buy" }
-    ],
-    "health": { "score": 84, "rating": "excellent" },
-    "spread": { "spreadPercentage": "0.3005", "midPrice": "0.0000000000029955" }
-  }
-}
-```
+<p align="center">
+  <img src="screenshots/06-snapshot.svg" alt="All-in-One Market Snapshot" width="780">
+</p>
 
 ### 7. Wallet portfolio
 
-```bash
-curl 'http://localhost:3000/api/v1/accounts/inj14au322k9munkmx5wrchz9q30juf5wjgz2cfqku/portfolio'
-```
-
-```json
-{
-  "success": true,
-  "data": {
-    "address": "inj14au322k9munkmx5wrchz9q30juf5wjgz2cfqku",
-    "bankBalances": [
-      { "denom": "inj", "amount": "2" },
-      { "denom": "peggy0xdAC17F958D2ee523a2206206994597C13D831ec7", "amount": "0" }
-    ],
-    "subaccounts": [
-      {
-        "subaccountId": "0xaf79152ac5df276d9a8e1e2e22822f9713474902000000000000000000000000",
-        "denom": "peggy0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "deposit": { "totalBalance": "0.475", "availableBalance": "0.475" }
-      }
-    ],
-    "positionsCount": 0
-  }
-}
-```
+<p align="center">
+  <img src="screenshots/07-wallet.svg" alt="Wallet Portfolio" width="780">
+</p>
 
 ### 8. Compare markets side-by-side
 

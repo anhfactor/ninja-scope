@@ -1,0 +1,70 @@
+<svg width="820" height="380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; }
+      .bar { fill: #313244; }
+      .title { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .cmd { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .prompt { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .txt { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .header { fill: #cba6f7; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .buy { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .sell { fill: #f38ba8; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .val { fill: #f9e2af; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .dim { fill: #6c7086; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .dot-red { fill: #f38ba8; }
+      .dot-yellow { fill: #f9e2af; }
+      .dot-green { fill: #a6e3a1; }
+    </style>
+  </defs>
+  <rect class="bg" width="820" height="380" rx="10"/>
+  <rect class="bar" width="820" height="36" rx="10"/>
+  <rect class="bg" x="0" y="26" width="820" height="10"/>
+  <circle class="dot-red" cx="20" cy="18" r="6"/>
+  <circle class="dot-yellow" cx="40" cy="18" r="6"/>
+  <circle class="dot-green" cx="60" cy="18" r="6"/>
+  <text class="title" x="370" y="22" text-anchor="middle">NinjaScope — Whale Trade Detection</text>
+
+  <text class="prompt" x="20" y="60">$</text>
+  <text class="cmd" x="35" y="60">curl '.../markets/0xa508cb.../whales'</text>
+
+  <!-- Table header -->
+  <text class="header" x="20" y="100">#</text>
+  <text class="header" x="50" y="100">Direction</text>
+  <text class="header" x="180" y="100">Price</text>
+  <text class="header" x="310" y="100">Quantity</text>
+  <text class="header" x="470" y="100">Notional Value</text>
+  <line x1="20" y1="112" x2="790" y2="112" stroke="#45475a" stroke-width="1"/>
+
+  <!-- Whale 1 -->
+  <text class="txt" x="20" y="145">1</text>
+  <text class="buy" x="50" y="145">BUY</text>
+  <text class="txt" x="180" y="145">$2.989</text>
+  <text class="txt" x="310" y="145">512.906 INJ</text>
+  <text class="val" x="470" y="145">$1,533.08</text>
+  <!-- bar -->
+  <rect x="590" y="132" width="190" height="18" rx="3" fill="#a6e3a1" opacity="0.3"/>
+
+  <!-- Whale 2 -->
+  <text class="txt" x="20" y="185">2</text>
+  <text class="sell" x="50" y="185">SELL</text>
+  <text class="txt" x="180" y="185">$2.989</text>
+  <text class="txt" x="310" y="185">512.906 INJ</text>
+  <text class="val" x="470" y="185">$1,533.08</text>
+  <rect x="590" y="172" width="190" height="18" rx="3" fill="#f38ba8" opacity="0.3"/>
+
+  <!-- Whale 3 -->
+  <text class="txt" x="20" y="225">3</text>
+  <text class="buy" x="50" y="225">BUY</text>
+  <text class="txt" x="180" y="225">$3.004</text>
+  <text class="txt" x="310" y="225">363.948 INJ</text>
+  <text class="val" x="470" y="225">$1,093.30</text>
+  <rect x="590" y="212" width="135" height="18" rx="3" fill="#a6e3a1" opacity="0.3"/>
+
+  <line x1="20" y1="255" x2="790" y2="255" stroke="#45475a" stroke-width="1"/>
+
+  <text class="dim" x="20" y="285">Auto-detects top 10% of trades by notional value</text>
+  <text class="dim" x="20" y="310">Custom threshold: ?minValue=5000</text>
+  <text class="dim" x="20" y="340">Market: INJ/USDT (spot)</text>
+  <text class="dim" x="20" y="360">Source: last 100 trades from Injective mainnet</text>
+</svg>

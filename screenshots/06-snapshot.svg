@@ -1,0 +1,69 @@
+<svg width="820" height="440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; }
+      .bar { fill: #313244; }
+      .title { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .cmd { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .prompt { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .key { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .str { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .num { fill: #fab387; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .punc { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .highlight { fill: #f9e2af; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .badge { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .label { fill: #cba6f7; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; font-weight: bold; }
+      .dim { fill: #6c7086; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; font-style: italic; }
+      .dot-red { fill: #f38ba8; }
+      .dot-yellow { fill: #f9e2af; }
+      .dot-green { fill: #a6e3a1; }
+    </style>
+  </defs>
+  <rect class="bg" width="820" height="440" rx="10"/>
+  <rect class="bar" width="820" height="36" rx="10"/>
+  <rect class="bg" x="0" y="26" width="820" height="10"/>
+  <circle class="dot-red" cx="20" cy="18" r="6"/>
+  <circle class="dot-yellow" cx="40" cy="18" r="6"/>
+  <circle class="dot-green" cx="60" cy="18" r="6"/>
+  <text class="title" x="370" y="22" text-anchor="middle">NinjaScope — All-in-One Market Snapshot</text>
+
+  <text class="prompt" x="20" y="60">$</text>
+  <text class="cmd" x="35" y="60">curl '.../markets/0xa508cb.../snapshot'</text>
+  <text class="dim" x="470" y="60">← One API call gets everything</text>
+
+  <text class="punc" x="20" y="90">{</text>
+
+  <!-- Market -->
+  <text class="label" x="35" y="115">MARKET</text>
+  <text class="key" x="35" y="138">"market"</text><text class="punc" x="110" y="138">:</text><text class="str" x="125" y="138">"INJ/USDT"</text><text class="punc" x="235" y="138">,</text>
+  <text class="key" x="250" y="138">"type"</text><text class="punc" x="305" y="138">:</text><text class="str" x="320" y="138">"spot"</text>
+
+  <!-- Orderbook -->
+  <text class="label" x="35" y="170">ORDERBOOK</text>
+  <text class="key" x="35" y="193">"bestBid"</text><text class="punc" x="120" y="193">:</text><text class="highlight" x="135" y="193">"2.974"</text><text class="punc" x="195" y="193">,</text>
+  <text class="key" x="215" y="193">"bestAsk"</text><text class="punc" x="300" y="193">:</text><text class="highlight" x="315" y="193">"2.981"</text><text class="punc" x="375" y="193">,</text>
+  <text class="key" x="395" y="193">"spread"</text><text class="punc" x="470" y="193">:</text><text class="highlight" x="485" y="193">"0.2351%"</text>
+  <text class="key" x="35" y="218">"buyLevels"</text><text class="punc" x="140" y="218">:</text><text class="num" x="155" y="218">82</text><text class="punc" x="180" y="218">,</text>
+  <text class="key" x="200" y="218">"sellLevels"</text><text class="punc" x="310" y="218">:</text><text class="num" x="325" y="218">13,769</text>
+
+  <!-- Top of book -->
+  <text class="label" x="35" y="250">TOP OF BOOK</text>
+  <text class="key" x="35" y="273">"topBuys"</text><text class="punc" x="120" y="273">:</text><text class="str" x="135" y="273">[{ humanPrice: "2.991", humanQuantity: "2140.07" }]</text>
+  <text class="key" x="35" y="298">"topSells"</text><text class="punc" x="125" y="298">:</text><text class="str" x="140" y="298">[{ humanPrice: "3", humanQuantity: "1680.681" }]</text>
+
+  <!-- Trades -->
+  <text class="label" x="35" y="330">RECENT TRADES</text>
+  <text class="key" x="35" y="353">"recentTrades"</text><text class="punc" x="165" y="353">:</text><text class="num" x="180" y="353">5 trades</text>
+
+  <!-- Health -->
+  <text class="label" x="35" y="385">HEALTH</text>
+  <text class="key" x="35" y="408">"score"</text><text class="punc" x="100" y="408">:</text><text class="highlight" x="115" y="408">84</text><text class="punc" x="140" y="408">,</text>
+  <text class="key" x="160" y="408">"rating"</text><text class="punc" x="235" y="408">:</text><text class="badge" x="250" y="408">"excellent"</text>
+
+  <text class="punc" x="20" y="430">}</text>
+
+  <!-- Score bar -->
+  <rect x="550" y="378" width="230" height="22" rx="4" fill="#313244"/>
+  <rect x="550" y="378" width="193" height="22" rx="4" fill="#a6e3a1"/>
+  <text class="title" x="635" y="394" text-anchor="middle" style="fill:#1e1e2e;font-weight:bold">84 / 100</text>
+</svg>

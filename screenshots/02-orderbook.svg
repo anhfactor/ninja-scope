@@ -1,0 +1,58 @@
+<svg width="820" height="540" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; }
+      .bar { fill: #313244; }
+      .title { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .cmd { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .prompt { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .key { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .str { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .num { fill: #fab387; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .punc { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .comment { fill: #6c7086; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; font-style: italic; }
+      .highlight { fill: #f9e2af; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .dot-red { fill: #f38ba8; }
+      .dot-yellow { fill: #f9e2af; }
+      .dot-green { fill: #a6e3a1; }
+    </style>
+  </defs>
+  <rect class="bg" width="820" height="540" rx="10"/>
+  <rect class="bar" width="820" height="36" rx="10"/>
+  <rect class="bg" x="0" y="26" width="820" height="10"/>
+  <circle class="dot-red" cx="20" cy="18" r="6"/>
+  <circle class="dot-yellow" cx="40" cy="18" r="6"/>
+  <circle class="dot-green" cx="60" cy="18" r="6"/>
+  <text class="title" x="370" y="22" text-anchor="middle">NinjaScope — Orderbook (Human-Readable Prices)</text>
+
+  <text class="prompt" x="20" y="60">$</text>
+  <text class="cmd" x="35" y="60">curl '.../markets/0xa508cb.../orderbook'</text>
+
+  <text class="punc" x="20" y="90">{</text>
+  <text class="key" x="35" y="110">"buys"</text><text class="punc" x="85" y="110">: [</text>
+  <text class="punc" x="50" y="130">{</text>
+  <text class="key" x="65" y="150">"price"</text><text class="punc" x="125" y="150">:</text><text class="str" x="140" y="150">"0.000000000002981"</text><text class="punc" x="345" y="150">,</text>
+  <text class="key" x="65" y="170">"quantity"</text><text class="punc" x="150" y="170">:</text><text class="str" x="165" y="170">"45623000000000000000"</text><text class="punc" x="395" y="170">,</text>
+  <text class="key" x="65" y="195">"humanPrice"</text><text class="punc" x="170" y="195">:</text><text class="highlight" x="185" y="195">"2.981"</text><text class="punc" x="245" y="195">,</text>
+  <text class="comment" x="270" y="195">← auto-converted!</text>
+  <text class="key" x="65" y="215">"humanQuantity"</text><text class="punc" x="195" y="215">:</text><text class="highlight" x="210" y="215">"45.623"</text>
+  <text class="punc" x="50" y="235">}</text><text class="punc" x="60" y="235">,</text>
+  <text class="punc" x="50" y="255">{</text>
+  <text class="key" x="65" y="275">"price"</text><text class="punc" x="125" y="275">:</text><text class="str" x="140" y="275">"0.000000000002978"</text><text class="punc" x="345" y="275">,</text>
+  <text class="key" x="65" y="295">"humanPrice"</text><text class="punc" x="170" y="295">:</text><text class="highlight" x="185" y="295">"2.978"</text><text class="punc" x="245" y="295">,</text>
+  <text class="key" x="65" y="315">"humanQuantity"</text><text class="punc" x="195" y="315">:</text><text class="highlight" x="210" y="315">"3838.833"</text>
+  <text class="punc" x="50" y="335">}</text>
+  <text class="punc" x="35" y="355">]</text><text class="punc" x="45" y="355">,</text>
+
+  <text class="key" x="35" y="380">"sells"</text><text class="punc" x="90" y="380">: [</text>
+  <text class="punc" x="50" y="400">{</text>
+  <text class="key" x="65" y="420">"humanPrice"</text><text class="punc" x="170" y="420">:</text><text class="highlight" x="185" y="420">"2.984"</text><text class="punc" x="245" y="420">,</text>
+  <text class="key" x="65" y="440">"humanQuantity"</text><text class="punc" x="195" y="440">:</text><text class="highlight" x="210" y="440">"3435.568"</text>
+  <text class="punc" x="50" y="460">}</text>
+  <text class="punc" x="35" y="475">]</text><text class="punc" x="45" y="475">,</text>
+
+  <text class="key" x="35" y="500">"bestBid"</text><text class="punc" x="115" y="500">:</text><text class="str" x="125" y="500">"2.981"</text><text class="punc" x="185" y="500">,</text>
+  <text class="key" x="210" y="500">"bestAsk"</text><text class="punc" x="290" y="500">:</text><text class="str" x="300" y="500">"2.984"</text><text class="punc" x="360" y="500">,</text>
+  <text class="key" x="385" y="500">"spreadPercentage"</text><text class="punc" x="545" y="500">:</text><text class="highlight" x="555" y="500">"0.1006%"</text>
+  <text class="punc" x="20" y="525">}</text>
+</svg>

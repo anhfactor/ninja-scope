@@ -1,0 +1,50 @@
+<svg width="820" height="380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; }
+      .bar { fill: #313244; }
+      .title { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .cmd { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .prompt { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .key { fill: #89b4fa; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .str { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .num { fill: #fab387; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .punc { fill: #cdd6f4; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+      .highlight { fill: #f9e2af; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; font-weight: bold; }
+      .badge { fill: #a6e3a1; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 14px; font-weight: bold; }
+      .dot-red { fill: #f38ba8; }
+      .dot-yellow { fill: #f9e2af; }
+      .dot-green { fill: #a6e3a1; }
+    </style>
+  </defs>
+  <rect class="bg" width="820" height="380" rx="10"/>
+  <rect class="bar" width="820" height="36" rx="10"/>
+  <rect class="bg" x="0" y="26" width="820" height="10"/>
+  <circle class="dot-red" cx="20" cy="18" r="6"/>
+  <circle class="dot-yellow" cx="40" cy="18" r="6"/>
+  <circle class="dot-green" cx="60" cy="18" r="6"/>
+  <text class="title" x="370" y="22" text-anchor="middle">NinjaScope — Market Health Score</text>
+
+  <text class="prompt" x="20" y="60">$</text>
+  <text class="cmd" x="35" y="60">curl '.../markets/0xa508cb.../health'</text>
+
+  <text class="punc" x="20" y="95">{</text>
+  <text class="key" x="35" y="120">"marketId"</text><text class="punc" x="130" y="120">:</text><text class="str" x="145" y="120">"0xa508cb3292...c844c0"</text><text class="punc" x="400" y="120">,</text>
+  <text class="key" x="35" y="145">"ticker"</text><text class="punc" x="110" y="145">:</text><text class="str" x="125" y="145">"INJ/USDT"</text><text class="punc" x="240" y="145">,</text>
+
+  <text class="key" x="35" y="175">"score"</text><text class="punc" x="100" y="175">:</text><text class="highlight" x="115" y="175">84</text><text class="punc" x="140" y="175">,</text>
+
+  <text class="key" x="35" y="205">"components"</text><text class="punc" x="150" y="205">: {</text>
+  <text class="key" x="55" y="230">"spreadScore"</text><text class="punc" x="170" y="230">:</text><text class="num" x="185" y="230">60</text><text class="punc" x="210" y="230">,</text>
+  <text class="key" x="55" y="255">"depthScore"</text><text class="punc" x="165" y="255">:</text><text class="num" x="180" y="255">100</text><text class="punc" x="210" y="255">,</text>
+  <text class="key" x="55" y="280">"activityScore"</text><text class="punc" x="195" y="280">:</text><text class="num" x="210" y="280">100</text>
+  <text class="punc" x="35" y="305">}</text><text class="punc" x="45" y="305">,</text>
+
+  <text class="key" x="35" y="335">"rating"</text><text class="punc" x="110" y="335">:</text><text class="badge" x="125" y="335">"excellent"</text>
+  <text class="punc" x="20" y="360">}</text>
+
+  <!-- Score bar visualization -->
+  <rect x="550" y="140" width="230" height="24" rx="4" fill="#313244"/>
+  <rect x="550" y="140" width="193" height="24" rx="4" fill="#a6e3a1"/>
+  <text class="title" x="635" y="157" text-anchor="middle" style="fill:#1e1e2e;font-weight:bold">84 / 100</text>
+</svg>
