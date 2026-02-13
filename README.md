@@ -44,8 +44,8 @@ Returns clean, structured JSON with human-readable prices — ready for trading 
 ## Quick Start
 
 ```bash
-git clone https://github.com/anhfactor/ninja-inj.git
-cd ninja-inj
+git clone https://github.com/anhfactor/ninja-scope.git
+cd ninja-scope
 npm install
 cp .env.example .env
 npm start
